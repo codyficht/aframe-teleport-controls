@@ -548,7 +548,7 @@
 	  this.uvs = new Float32Array(numPoints * 2 * 2);
 	  this.width = width;
 
-	  this.geometry.addAttribute('position', new THREE.BufferAttribute(this.vertices, 3).setDynamic(true));
+	  this.geometry.setAttribute('position', new THREE.BufferAttribute(this.vertices, 3).setUsage(true));
 
 	  this.material = new THREE.MeshBasicMaterial({
 	    side: THREE.DoubleSide,
@@ -556,7 +556,6 @@
 	  });
 
 	  this.mesh = new THREE.Mesh(this.geometry, this.material);
-	  this.mesh.drawMode = THREE.TriangleStripDrawMode;
 
 	  this.mesh.frustumCulled = false;
 	  this.mesh.vertices = this.vertices;
